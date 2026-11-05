@@ -10,7 +10,7 @@ const path = require('path');
 const languages=["none","telugu","tamil","english","hindi"];
 const genres=["none","love","suspence","comedy","horror","action"];
 
-const pythonPath = 'C:\\Users\\sreem\\AppData\\Local\\Programs\\Python\\Python312\\python.exe';
+const pythonPath = process.env.PYTHON_PATH || (process.platform === 'win32' ? 'python' : 'python3');
 
 module.exports.showmovies=async(req,res)=>{
         const movies=await Movie.find({})
